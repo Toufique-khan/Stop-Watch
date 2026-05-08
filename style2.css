@@ -1,0 +1,221 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+  --base-color: white;
+  --base-variant: #e8e9ed;
+  --text-color: #3a435d;
+  --secondary-text: #232738;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+}
+
+.darkmode {
+  --base-color: #070b1d;
+  --base-variant: #101425;
+  --text-color: #a4a5b8;
+  --secondary-text: #a4a5b8;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+}
+
+body {
+  background-color: var(--base-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: monospace;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+h1{
+    font-size: clamp(2rem, 8vw, 4.375rem);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#contain{
+  width: 100%;
+  max-width: 800px;
+  min-height: calc(100vh - 100px);
+  background-color: var(--base-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#display{
+  margin-top: clamp(20px, 4vw, 30px);
+  border: clamp(3px, 0.5vw, 5px) solid;
+  padding: clamp(15px, 4vw, 30px);
+  border-radius: clamp(25px, 6vw, 50px);
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-family: monospace;
+  font-weight: bold;
+  color: hsl(0, 0%, 30%);
+  text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#control{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(8px, 2vw, 10px);
+  margin-top: clamp(30px, 6vw, 60px);
+  width: 100%;
+  max-width: 500px;
+}
+
+#control button{
+  background-color: var(--accent-color);
+  color: var(--base-color);
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: bold;
+  padding: clamp(8px, 2vw, 10px) clamp(15px, 4vw, 20px);
+  min-width: clamp(100px, 20vw, 125px);
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1 1 auto;
+  max-width: 150px;
+}
+
+#control button:hover{
+  background-color: transparent;
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 113, 255, 0.3);
+}
+
+#control button:active{
+  transform: translateY(0);
+}
+
+#theme-switch{
+  height: clamp(40px, 8vw, 50px);
+  width: clamp(40px, 8vw, 50px);
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: clamp(15px, 3vw, 20px);
+  right: clamp(15px, 3vw, 20px);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#theme-switch:hover{
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#theme-switch svg{
+  fill: var(--primary-color);
+  width: clamp(20px, 4vw, 24px);
+  height: clamp(20px, 4vw, 24px);
+}
+
+#theme-switch svg:last-child{
+  display: none;
+}
+
+.darkmode #theme-switch svg:first-child{
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+  display: block;
+}
+
+/* Media Queries for better control on specific breakpoints */
+
+/* Small devices (phones, less than 576px) */
+@media (max-width: 575px) {
+  #display{
+    font-size: 2.5rem;
+    padding: 15px 10px;
+  }
+  
+  #control{
+    flex-direction: column;
+    width: 90%;
+  }
+  
+  #control button{
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  h1{
+    font-size: 2.5rem;
+  }
+}
+
+/* Medium devices (tablets, 576px to 768px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  #display{
+    font-size: 3.5rem;
+  }
+  
+  h1{
+    font-size: 3rem;
+  }
+}
+
+/* Large devices (desktops, 768px and up) */
+@media (min-width: 768px) {
+  #control button{
+    flex: 0 1 auto;
+  }
+}
+
+/* Extra small devices in landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+  #contain{
+    min-height: auto;
+    padding: 10px;
+  }
+  
+  h1{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  #display{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 2rem;
+  }
+  
+  #control{
+    margin-top: 15px;
+  }
+  
+  #control button{
+    padding: 6px 12px;
+    font-size: 1rem;
+    min-width: 90px;
+  }
+}
