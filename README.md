@@ -41,7 +41,7 @@ This project was created to strengthen my frontend development and JavaScript fu
 - Add Keyboard Shortcuts ⌨️
 - Smooth Animations & Sound Effects 🔊
 
----
+----
 Built with precision, logic, and clean UI design 💻✨
 <br>
 Author - Toufique Ahmed Khan
